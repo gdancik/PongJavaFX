@@ -1,0 +1,119 @@
+@startuml
+title Pong UML Class Diagram
+left to right direction
+
+class Application <<JavaFX>>
+
+class Main {
+    -int SCENE_WIDTH
+    -int SCENE_HEIGHT
+    -Set<KeyCode> keysDown
+    -Board board
+    -Canvas court
+    -Label rallyScore
+    -Label bestScore
+    -Label stateLabel
+    -Label instructionLabel
+    -Button playButton
+    -GameState gameState
+    -double serveCountdown
+    -long previousFrame
+    -int bestRally
+    +start(Stage stage) : void
+    -createScoreboard() : HBox
+    -playerCard(String name, String colorClass, Label score, boolean left) : VBox
+    -update(double elapsed) : void
+    -render() : void
+    -handlePlayAction() : void
+    -startGame() : void
+    -resetGame() : void
+    -updateScoreLabels() : void
+    {static} +main(String[] args) : void
+}
+
+enum "GameState" as GameState <<nested in Main>> {
+    READY
+    RUNNING
+    PAUSED
+    GAME_OVER
+}
+
+class Board {
+    -Player player
+    -Ball ball
+    -Wall wall
+    -double width
+    -double height
+    -int rally
+    -boolean gameOver
+    -boolean initialized
+    +reset(double courtWidth, double courtHeight) : void
+    +update(double elapsed, double courtWidth, double courtHeight, Set<KeyCode> keysDown) : void
+    +render(GraphicsContext graphics, double courtWidth, double courtHeight) : void
+    +getRally() : int
+    +isGameOver() : boolean
+    -setSize(double courtWidth, double courtHeight) : void
+}
+
+class Player {
+    {static} -double WIDTH
+    {static} -double HEIGHT
+    {static} -double SPEED
+    {static} -double X
+    {static} -Color COLOR
+    -double y
+    +reset(double courtHeight) : void
+    +update(double elapsed, double courtHeight, boolean moveUp, boolean moveDown) : void
+    +render(GraphicsContext graphics) : void
+    +hits(double ballX, double ballY, double radius) : boolean
+    +getY() : double
+    +setY(double y) : void
+    +getCenterY() : double
+    +getRightEdge() : double
+    +getHeight() : double
+}
+
+class Ball {
+    {static} -double RADIUS
+    {static} -double INITIAL_SPEED
+    -double x
+    -double y
+    -double velocityX
+    -double velocityY
+    +reset(double centerX, double centerY) : void
+    +move(double elapsed, double height) : void
+    +bounceVertically() : void
+    +bounceOffPlayer(double playerCenterY, double playerHeight) : void
+    +bounceOffWall() : void
+    +placeJustRightOfPlayer(double playerRightEdge) : void
+    +render(GraphicsContext graphics) : void
+    +getX() : double
+    +getY() : double
+    +getRadius() : double
+    +getVelocityX() : double
+    +setX(double x) : void
+    +setY(double y) : void
+    +setPosition(double x, double y) : void
+}
+
+class Wall {
+    {static} -double DEFAULT_X
+    -double x
+    -double height
+    +setHeight(double height) : void
+    +getX() : double
+    +setX(double x) : void
+    +getHeight() : double
+    +hits(Ball ball) : boolean
+    +render(GraphicsContext graphics) : void
+}
+
+Application <|-- Main : extends
+Main *-- Board : owns
+Main --> GameState : tracks
+Board *-- Player : owns
+Board *-- Ball : owns
+Board *-- Wall : owns
+Wall ..> Ball : collision check
+
+@enduml

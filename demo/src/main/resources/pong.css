@@ -1,0 +1,131 @@
+.root {
+    -fx-background-color: linear-gradient(to bottom right, #101b27, #142634 56%, #1b3540);
+    -fx-font-family: "Avenir Next", "Helvetica Neue", sans-serif;
+}
+
+
+.content {
+    -fx-max-width: 1160px;
+}
+
+.heading {
+    -fx-alignment: center;
+}
+
+.eyebrow {
+    -fx-text-fill: #67f5c5;
+    -fx-font-size: 11px;
+    -fx-font-weight: bold;
+    -fx-letter-spacing: 2px;
+}
+
+.title {
+    -fx-text-fill: #f3f8f6;
+    -fx-font-size: 54px;
+    -fx-font-weight: 900;
+    -fx-letter-spacing: 7px;
+}
+
+.subtitle {
+    -fx-text-fill: #a4b9bf;
+    -fx-font-size: 14px;
+}
+
+.player-card {
+    -fx-padding: 7px 18px;
+}
+
+.player-name, .game-state {
+    -fx-font-size: 11px;
+    -fx-font-weight: bold;
+    -fx-letter-spacing: 1.4px;
+}
+
+.mint {
+    -fx-text-fill: #67f5c5;
+}
+
+.coral {
+    -fx-text-fill: #ff826e;
+}
+
+.score {
+    -fx-font-size: 44px;
+    -fx-font-weight: 800;
+}
+
+.game-state {
+    -fx-text-fill: #e7f2ef;
+}
+
+.instruction {
+    -fx-text-fill: #67f5c5;
+    -fx-font-size: 12px;
+    -fx-font-weight: bold;
+    -fx-letter-spacing: 1px;
+    -fx-alignment: center;
+    -fx-text-alignment: center;
+    -fx-padding: 7px 14px;
+    -fx-background-color: rgba(255, 255, 255, 0.055);
+    -fx-background-radius: 10px;
+}
+
+.versus {
+    -fx-text-fill: #758b93;
+    -fx-font-size: 12px;
+    -fx-font-weight: bold;
+}
+
+.court-frame {
+    -fx-background-color: #09131d;
+    -fx-background-radius: 20px;
+    -fx-border-color: rgba(192, 230, 226, 0.14);
+    -fx-border-radius: 20px;
+    -fx-border-width: 1px;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.28), 30, 0.18, 0, 12);
+    -fx-padding: 1px;
+}
+
+.court-frame .canvas {
+    -fx-background-radius: 20px;
+}
+
+
+.control-hint {
+    -fx-text-fill: #94aab1;
+    -fx-font-size: 10px;
+    -fx-font-weight: bold;
+    -fx-letter-spacing: 1px;
+}
+
+.play-button {
+    -fx-background-color: #67f5c5;
+    -fx-background-radius: 11px;
+    -fx-text-fill: #092018;
+    -fx-font-size: 12px;
+    -fx-font-weight: 900;
+    -fx-padding: 13px 25px;
+    -fx-cursor: hand;
+}
+
+.play-button:hover {
+    -fx-background-color: #a0ffdd;
+    -fx-translate-y: -1px;
+}
+
+.reset-button {
+    -fx-background-color: transparent;
+    -fx-border-color: rgba(210, 233, 230, 0.27);
+    -fx-border-radius: 11px;
+    -fx-background-radius: 11px;
+    -fx-text-fill: #d3e2df;
+    -fx-font-size: 12px;
+    -fx-font-weight: bold;
+    -fx-padding: 12px 24px;
+    -fx-cursor: hand;
+}
+
+.reset-button:hover {
+    -fx-background-color: rgba(255, 255, 255, 0.08);
+}
+
